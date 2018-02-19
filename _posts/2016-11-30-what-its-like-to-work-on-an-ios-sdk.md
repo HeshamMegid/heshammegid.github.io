@@ -29,23 +29,23 @@ We’ve all seen that bug that only happens in very specific conditions and only
 
 Developing an SDK means we have much more constraints compared to an app. Admittedly, some of these constraints are self-imposed.
 
-##### Dependencies
+#### Dependencies
 
 One of those biggest constraints is using as little dependencies as possible. This means no third party dependencies at all in our code, and also only using frameworks from Apple that are absolutely essential to what we’re doing to keep our SDK as lightweight as possible.
 
-##### Integration Steps
+#### Integration Steps
 
 We want it to be super easy to start using Instabug, so we make an effort to keep the steps you have to do to integrate our SDK into your project as simple as possible.
 
 For example, we avoid asking developers to add any extra build settings to be able to use Instabug. Since we ship a static framework, this means we can’t do things like using Objective-C categories since that requires adding an additional linker flag.
 
-##### Supporting Older Versions of iOS
+#### Supporting Older Versions of iOS
 
 When building apps, we have the luxury of deciding when to drop support for older versions of iOS, or to simply follow the common wisdom of only supporting the current version and one before that.
 
 Things aren’t that simple though when building an SDK. If a big percentage of apps using our SDK are still supporting older versions of iOS, then we have to support them too. We only dropped support for iOS 6 a couple of months ago.
 
-##### Framework Size
+#### Framework Size
 
 When developing an app, you do an effort to keep the download size at a reasonable number, and the last thing you want is for your download size to double because of an SDK you use.
 
