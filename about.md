@@ -56,5 +56,4 @@ I’ve been developing for iOS since 2010. Here are some of my most recent apps.
 ### Contacts
 
   * Twitter: [@HeshamMegid](http://twitter.com/HeshamMegid)
-  * Email: <talkto@hesh.am>
   * [LinkedIn profile](http://www.linkedin.com/in/HeshamMegid)
