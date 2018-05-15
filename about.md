@@ -14,7 +14,7 @@ I’ve started writing code when I was 12 years old. My first lines of code were
 
 I started to gain interest in mobile apps by the time the first iOS SDK was released. I couldn’t afford to get neither a Mac nor an iPhone, so I began to play around with Android instead. After graduation I worked with the BlackBerry SDK for a little less than a year (and hated it!), then finally made the shift to iOS.
 
-### **Apps**
+### Apps
 
 I’ve been developing for iOS since 2010. Here are some of my most recent apps.
 
@@ -46,17 +46,14 @@ I’ve been developing for iOS since 2010. Here are some of my most recent apps.
   </tr>
 </table>
 
-### **Open-source work**
+### Open-source work
 
   * [HMSegmentedControl](https://github.com/HeshamMegid/HMSegmentedControl): A drop-in replacement for UISegmentedControl mimicking the style of the segmented control used in Google Currents and various other Google products.
   * [HMSegmentedControl-Swift](https://github.com/HeshamMegid/HMSegmentedControl-Swift): An attempt to create a version of the original HMSegmentedControl that uses modern Cocoa APIs and Swift 3.0.
   * [HMSideMenu](https://github.com/HeshamMegid/HMSideMenu): Allows you to display a menu of items that show from the left, right, top or bottom of a view controller with a delightful animation.
   * [HMDiallingCode](https://github.com/HeshamMegid/HMDiallingCode): Gets the dialling code of the user&#8217;s current location by using CoreLocation and reverse geocoding to determine the country of the user, then retrieve it&#8217;s international dialling code. Additionally, it can be used to get the dialling code for a specific country or the counties that use a specific dialling code.
 
-### **Contacts**
+### Contacts
 
   * Twitter: [@HeshamMegid](http://twitter.com/HeshamMegid)
-  * Email: <talkto@hesh.am>
   * [LinkedIn profile](http://www.linkedin.com/in/HeshamMegid)
-
-<span style="color: #222222; font-family: arial, sans-serif; font-size: 13px; line-height: normal;"> </span>
