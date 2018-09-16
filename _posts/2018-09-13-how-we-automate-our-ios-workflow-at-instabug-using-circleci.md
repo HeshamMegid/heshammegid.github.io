@@ -6,9 +6,7 @@ layout: post
 categories: iOS
 ---
 
-At Instabug we build an SDK for mobile apps. Building an SDK often means that most tools created for automating tasks around development and deployment of iOS apps don't work for us, so we usually need to develop our own bespoke solutions.
-
-To increase our productivity and keep things moving fast, we like to automate our tasks. One crucial component of automating many parts of our workflow is continuous integration.
+We believe in automating repetitive tasks to increase our productivity and keep things moving fast. Since we build an SDK, this means that most tools created for automating tasks around development and deployment of iOS apps don't work for us, so we usually need to develop our own bespoke solutions.
 
 This post goes through what our workflow is and how we automate it using CircleCI.
 
@@ -72,7 +70,7 @@ unit-tests:
         keys:
         - gems-{{ checksum "Gemfile.lock" }}
         # Fall back to using the latest cache if no exact match is found.
-        # - v1-gems-
+        - v1-gems-
     - run: 
         name: Create artifacts directory
         command: mkdir $ARTIFACTS_DIRECTORY
@@ -150,7 +148,7 @@ uitests-analyzer:
         keys:
         - gems-{{ checksum "Gemfile.lock" }}
         # Fall back to using the latest cache if no exact match is found.
-        # - v1-gems-
+        - v1-gems-
     - run: 
         name: Create artifacts directory
         command: mkdir $ARTIFACTS_DIRECTORY
@@ -168,8 +166,7 @@ uitests-analyzer:
         name: Run UI tests
         command: |
           if [[ -n "${RUN_UI_TESTS}" || $CIRCLE_BRANCH = 'master' ]]; then
-            set -o pipefail && xcodebuild -workspace Instabug/Instabug.xcworkspace -scheme InstabugDemoUITests -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.3,name=iPhone 8' -only-testing:InstabugDemoUITests/AlertsUITests -only-testing:InstabugDemoUITests/BugReportingDisabledAttachmentsUITests -only-testing:InstabugDemoUITests/BugReportingUITests -only-testing:InstabugDemoUITests/IBGAnnotationUITests -only-testing:InstabugDemoUITests/IBGChatBasicUITests -only-testing:InstabugDemoUITests/IBGPromptVCUITests -only-testing:InstabugDemoUITests/IBGStatusBarTests test | xcpretty --color --report junit --output $ARTIFACTS_DIRECTORY/xcode/uitest_results_1.xml
-            set -o pipefail && xcodebuild -workspace Instabug/Instabug.xcworkspace -scheme InstabugDemoUITests -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.3,name=iPhone 8' -only-testing:InstabugDemoUITests/IBGSurveysFlowUITests -only-testing:InstabugDemoUITests/IBGSurveysUITests -only-testing:InstabugDemoUITests/InstabugUITests -only-testing:InstabugDemoUITests/IBGFeatureRequestUITests test | xcpretty --color --report junit --output $ARTIFACTS_DIRECTORY/xcode/uitest_results_2.xml
+            set -o pipefail && xcodebuild -workspace Instabug/Instabug.xcworkspace -scheme InstabugDemoUITests -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.3,name=iPhone 8' test | xcpretty --color --report junit --output $ARTIFACTS_DIRECTORY/xcode/uitest_results.xml
           else
             echo 'Skipping running UI Tests.'
           fi
@@ -200,7 +197,7 @@ generate-binary:
         keys:
         - gems-{{ checksum "Gemfile.lock" }}
         # Fall back to using the latest cache if no exact match is found.
-        # - v1-gems-
+        - v1-gems-
     - run: 
         name: Create artifacts directory
         command: mkdir $ARTIFACTS_DIRECTORY
@@ -243,7 +240,7 @@ generate-binary:
           find ./Instabug-dynamic/Instabug-SDK -path '*/.*' -prune -o -type f -print | zip $ARTIFACTS_DIRECTORY/Instabug.zip -@
           find ./Instabug-Docs -path '*/.*' -prune -o -type f -print | zip $ARTIFACTS_DIRECTORY/appledoc.zip -@
     - run:
-        name: Test Fat Binaries are not Corrupted
+        name: Test fat binaries are not corrupted
         command: |
           xcodebuild -project InstabugProductionDemo/InstabugProductionDemo.xcodeproj -scheme InstabugProductionDemoUITests -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.3,name=iPhone 8' test | xcpretty
     - store_artifacts:
