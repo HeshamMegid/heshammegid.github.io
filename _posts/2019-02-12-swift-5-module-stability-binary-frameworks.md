@@ -1,5 +1,5 @@
 ---
-title: Swift Module Stability for Binary Frameworks
+title: Swift 5, Module Stability and Binary Frameworks
 date: 2019-02-12T09:30:10+00:00
 author: hesham
 layout: post
