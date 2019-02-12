@@ -35,14 +35,13 @@ We were not sure if this is actually possible and safe to do though, so we asked
 
 ![question-to-jrose](/images/ct0yVGXrg4Yv7Jxos7Ck.png)
 
-And he confirmed that this is actually possible!
+And he confirmed that this is actually possible.
 
 ![answer-from-jrose](/images/dNdgCtgkbBXmmeWx2bI9.png)
-
 
 So we’re going to do exactly that! 🎉
 
 ## Conclusion
-With Swift 5, it’s not possible yet to ship binary frameworks that are purely written in Objective-C, but shipping frameworks that contains Swift with an Objective-C wrapper as an interface is possible and will be forward compatible with future versions of Swift.
+With Swift 5, it’s not possible yet to ship binary frameworks that are purely written in Swift, but shipping frameworks that contains Swift with an Objective-C wrapper as an interface is possible and will be forward compatible with future versions of Swift.
 
 We love Objective-C and it has served us very well during all those years, but we’re excited to finally start using Swift!
