@@ -31,7 +31,7 @@ This means that binary frameworks that are purely written in Swift and have to e
 ## Using Objective-C as the Interface
 We thought about using Swift internally in our code, and having an Objective-C wrapper around it that acts as the interface. This theoretically should work, removing the need to have `swiftmodule` interface.
 
-We were not sure if this is actually possible and safe to do though, so we asked Jordan Rose, an  Apple engineer working on Swift.
+We were not sure if this is actually possible and safe to do though, so we asked Jordan Rose, one of the Apple engineer working on Swift.
 
 ![question-to-jrose](/images/ct0yVGXrg4Yv7Jxos7Ck.png)
 
