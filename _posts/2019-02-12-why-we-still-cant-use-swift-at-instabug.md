@@ -12,7 +12,7 @@ The gist of it is that we have to wait till Swift has a stable ABI so we wouldn�
 
 So what’s module stability? This excerpt from the [Swift blog](https://swift.org/blog/abi-stability-and-more/) has the simplest explanation:
 
-> ABI stability is about mixing versions of Swift at/run time./What about compile time? Right now, Swift uses an opaque archive format called “swiftmodule” to describe the interface of a library, such as a framework “MagicKit”, rather than manually-written header files. However, the “swiftmodule” format is also tied to the current version of the compiler, which means an app developer can’t `import MagicKit` if MagicKit was built with a different version of Swift. That is, the app developer and the library author have to be using the same version of the compiler.
+> ABI stability is about mixing versions of Swift at _run time_. What about compile time? Right now, Swift uses an opaque archive format called “swiftmodule” to describe the interface of a library, such as a framework “MagicKit”, rather than manually-written header files. However, the “swiftmodule” format is also tied to the current version of the compiler, which means an app developer can’t `import MagicKit` if MagicKit was built with a different version of Swift. That is, the app developer and the library author have to be using the same version of the compiler.
 
 This means we still can't use Swift in our codebase, right? That's what we initially thought, but there's actually a very simple workaround. A `swiftmodule` describes the _public_ interface of a module, so as long as code written in Swift isn't publicly accessible, we can safely ship an SDK that would compile with any future version of Swift.
 
