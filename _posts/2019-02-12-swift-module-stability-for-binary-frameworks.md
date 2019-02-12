@@ -6,9 +6,9 @@ layout: post
 categories: iOS
 ---
 
-Since the introduction of Swift in 2014 and over 5 major releases, it has matured a lot. The tooling is better and many teams have either completely switched to Swift and away from Objective-C, or are mixing between both with all new code being written in Swift.
+Since the introduction of Swift in 2014 and over five major releases, it has matured a lot. The tooling is better and many teams have either completely switched to Swift and away from Objective-C, or are mixing between both with all new code being written in Swift.
 
-Swift leverages programming patterns and language features that encourage writing safer code that’s also easier to understand and maintain, which sounds amazing to any one using the 35-year-old alternative, Objective-C.
+Swift leverages programming patterns and language features that encourage writing safer code that’s also easier to understand and maintain, which sounds amazing to anyone using the 35-year-old alternative, Objective-C.
 
 ## ABI Stability
 Up until Swift 5, the lack of ABI stability meant that to be able to use Swift in your app it was necessary to ship the Swift runtime libraries with the app bundle. This added around 5 MB to the size of your app. While not an insignificant bump in size for smaller apps, most apps have accepted this tax in order to be able to use Swift.
@@ -31,7 +31,7 @@ This means that binary frameworks that are purely written in Swift and have to e
 ## Using Objective-C as the Interface
 We thought about using Swift internally in our code, and having an Objective-C wrapper around it that acts as the interface. This theoretically should work, removing the need to have `swiftmodule` interface.
 
-We were not sure if this is actually possible and safe to do though, so we asked Jordan Rose, one of the Apple engineer working on Swift.
+We were not sure if this is actually possible and safe to do though, so we asked Jordan Rose, an Apple engineer working on Swift.
 
 ![question-to-jrose](/images/ct0yVGXrg4Yv7Jxos7Ck.png)
 
@@ -42,6 +42,6 @@ And he confirmed that this is actually possible.
 So we’re going to do exactly that! 🎉
 
 ## Conclusion
-With Swift 5, it’s not possible yet to ship binary frameworks that are purely written in Swift, but shipping frameworks that contains Swift with an Objective-C wrapper as an interface is possible and will be forward compatible with future versions of Swift.
+With Swift 5, it’s not possible yet to ship binary frameworks that are purely written in Swift, but shipping frameworks that contain Swift with an Objective-C wrapper as an interface is possible and will be forward compatible with future versions of Swift.
 
 We love Objective-C and it has served us very well during all those years, but we’re excited to finally start using Swift!
