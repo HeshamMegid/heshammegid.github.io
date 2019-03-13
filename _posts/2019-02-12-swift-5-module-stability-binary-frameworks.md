@@ -24,7 +24,7 @@ So what’s module stability? This excerpt from the [Swift blog](https://swift.o
 
 Module stability isn’t available in Swift 5 and is currently under active development. So that means we can’t ship Swift binary frameworks? Well, not exactly.
 
-A `swiftmodule` file contains the compiler’s representation of the /public/ APIs of a framework, which is used when compiling client code that uses that framework.
+A `swiftmodule` file contains the compiler’s representation of the _public_ APIs of a framework, which is used when compiling client code that uses that framework.
 
 This means that binary frameworks that are purely written in Swift and have to expose their public APIs using the `swiftmodule` format are still not possible. 
 
