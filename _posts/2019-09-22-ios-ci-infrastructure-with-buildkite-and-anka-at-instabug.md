@@ -8,7 +8,7 @@ categories: iOS
 
 We, at [Instabug](https://instabug.com), are big fans of CircleCI and [use it for continuous integration](https://instabug.com/blog/how-we-automate-our-ios-workflow-at-instabug-using-circleci/) for both our iOS and Android SDKs as it worked great for our needs. Those needs, however, have recently changed quite a bit, and as a result, we decided to set up our own CI infrastructure. In this post, I’ll walk you through what motivated us to do it and that tools we used.
 
-## Current Challenges
+## Current Needs
 
 While CircleCI works great for us, we wanted to run our UI tests on physical devices instead of just simulators. This would help us find obscure UI and performance issues. This is currently not possible on CircleCI, and while there are many services that let you do this, we preferred to utilize the extensive set of testing device we already had at our office.
 
