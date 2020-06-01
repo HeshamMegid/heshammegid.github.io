@@ -6,7 +6,7 @@ layout: post
 categories: iOS
 ---
 
-**tl;dr:** I’m donating 30 hours of iOS development mentorship to anyone that’s starting to learn Swift or wanting to advance their skills. More details at [Swift Mentor](https://www.swiftmentor.io/free-mentorship)
+**tl;dr:** I’m donating 30 hours of iOS development mentorship to anyone who's starting to learn Swift or wanting to advance their skills. More details at [Swift Mentor](https://www.swiftmentor.io/free-mentorship)
 
 5 months ago, I quit my full time job and started focusing all my time on 2 projects: my iOS app, [TracKit](https://apps.apple.com/app/trackit-track-anything/id684374465), and [Swift Mentor](https://www.swiftmentor.io/). While there have been several ups and downs during those 5 months and the world almost came to an end, I’m very happy to share that May was the first month that income from TracKit and Swift Mentor has covered my personal expenses. 
 
