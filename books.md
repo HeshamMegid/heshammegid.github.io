@@ -7,7 +7,7 @@ layout: post
 permalink: /books/
 guid: http://hesh.am/?page_id=880
 ---
-This page is a kitchen-sink list of everything I&#8217;ve read over the past few years, categorized into the books I&#8217;ve loved, the ones I thought were okay, and finally, the ones I thought were meh.
+This page contains a list of everything I've read over the past few years, categorized into the books I&#8217;ve loved, the ones I thought were okay, and finally, the ones I thought were meh.
 
 ## Books I Loved
 
