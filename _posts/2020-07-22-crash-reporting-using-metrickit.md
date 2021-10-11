@@ -1,5 +1,5 @@
 ---
-title: Exploring iOS 14: Crash Reporting using MetricKit
+title: "Exploring iOS 14: Crash Reporting using MetricKit"
 date: 2020-07-22T14:35:10+00:00
 author: hesham
 layout: post
