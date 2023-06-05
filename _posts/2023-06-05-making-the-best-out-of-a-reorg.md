@@ -1,6 +1,6 @@
 ---
 title: "Making the Best Out of a Reorg"
-date: 2023-06-05T14:35:10+00:00
+date: 2023-06-04T14:35:10+00:00
 author: hesham
 layout: post
 categories: Engineering
