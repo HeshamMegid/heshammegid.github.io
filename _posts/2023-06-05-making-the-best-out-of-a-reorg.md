@@ -3,7 +3,7 @@ title: "Making the Best Out of a Reorg"
 date: 2023-06-05T14:35:10+00:00
 author: hesham
 layout: post
-categories: Engineering Leadership
+categories: Engineering
 ---
 
 A reorganization, or reorg, is a change in the structure of an organization. Reorgs typically happen in response to changes in the market or the competitive landscape. They can be stressful and disruptive, but they are also a common occurrence in many companies. Here are some tips on how to make the best out of a reorg.
