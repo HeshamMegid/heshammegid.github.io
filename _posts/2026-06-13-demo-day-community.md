@@ -1,6 +1,6 @@
 ---
 title: "Demo Day Community"
-date: 2026-06-13T15:31:10+00:00
+date: 2026-06-13T08:00:00+00:00
 author: hesham
 layout: post
 ---
