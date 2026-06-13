@@ -23,4 +23,4 @@ We've run two so far. It's small and early, but the thing I hoped would happen i
 
 If that sounds like something you'd want, come present or just come watch. Both are fine.
 
-Sign up at [demoday.community](https://demoday.community). Bring something you made. That's the only requirement.
+Sign up at [demoday.community](https://demoday.community)
