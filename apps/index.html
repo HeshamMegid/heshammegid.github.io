@@ -1,0 +1,50 @@
+---
+permalink: /apps
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apps by {{ site.title }}</title>
+  <meta name="description" content="iPhone apps built by {{ site.title }}, including Ease (migraine tracker) and TracKit (daily tracker).">
+  <link rel="canonical" href="{{ site.url }}/apps">
+  <meta property="og:title" content="Apps by {{ site.title }}">
+  <meta property="og:description" content="iPhone apps built by {{ site.title }}.">
+  <meta property="og:url" content="{{ site.url }}/apps">
+  <link rel="stylesheet" href="/assets/apps/app.css">
+</head>
+<body class="apps-index">
+  <header class="index-head">
+    <h1>Apps</h1>
+    <p>Thoughtful iPhone apps I design and build.</p>
+  </header>
+
+  <main class="app-grid">
+    {% assign apps = site.data.apps %}
+    {% for app in apps %}
+      {% if app.status == "live" %}
+      <a class="app-card" href="{{ app.url }}">
+        <img src="{{ app.icon }}" alt="{{ app.name }} icon" width="72" height="72">
+        <div class="meta">
+          <h2>{{ app.name }}</h2>
+          <p>{{ app.tagline }}</p>
+        </div>
+      </a>
+      {% else %}
+      <span class="app-card soon">
+        <span class="tile" aria-hidden="true">{{ app.name | slice: 0, 1 }}</span>
+        <div class="meta">
+          <h2>{{ app.name }}</h2>
+          <p>{{ app.tagline }}</p>
+        </div>
+      </span>
+      {% endif %}
+    {% endfor %}
+  </main>
+
+  <footer class="index-foot">
+    <a href="/">← Back to hesh.am</a>
+  </footer>
+</body>
+</html>

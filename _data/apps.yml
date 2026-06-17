@@ -1,0 +1,15 @@
+# App landing pages shown on /apps. Set `status: live` to make a card clickable;
+# anything else renders as a dimmed "coming soon" card.
+- name: "Ease"
+  slug: ease
+  tagline: "Migraine tracker. Spot triggers, gain insights, share reports with your doctor."
+  icon: /assets/apps/ease/icon.png
+  url: /apps/ease
+  status: live
+
+- name: "TracKit"
+  slug: trackit
+  tagline: "The ultimate daily tracker for weight, workouts, expenses, habits, and more."
+  icon: /assets/apps/trackit/icon.png
+  url: /apps/trackit
+  status: stub

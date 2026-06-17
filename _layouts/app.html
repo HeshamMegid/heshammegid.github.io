@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{{ page.og_image | default: page.icon }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ page.og_image | default: page.icon }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "{{ page.app_name }}",
+    "operatingSystem": "iOS",
+    "applicationCategory": "{{ page.category | default: 'HealthApplication' }}",
+    "description": "{{ page.description }}",
+    "image": "{{ site.url }}{{ page.icon }}",
+    "url": "{{ page.appstore }}",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="{{ page.icon }}">
+  <link rel="apple-touch-icon" href="{{ page.icon }}">
+  <link rel="stylesheet" href="/assets/apps/app.css">
+  <style>
+    :root {
+      --accent: {{ page.accent | default: '#5959D9' }};
+      --accent-dark: {{ page.accent_dark | default: page.accent | default: '#4542BD' }};
+    }
+  </style>
+</head>
+<body class="app-page">
+
+  {% capture badge %}<a class="badge-link" href="{{ page.appstore }}" rel="noopener" aria-label="Download {{ page.app_name }} on the App Store"><img src="/assets/apps/appstore-badge.svg" alt="Download on the App Store" height="54"></a>{% endcapture %}
+
+  {% capture qr %}
+    {% if page.qr %}
+    <div class="qr-wrap only-desktop">
+      <div class="qr">
+        <img src="{{ page.qr }}" alt="QR code to download {{ page.app_name }}" width="132" height="132">
+        <span>Point your phone camera<br>here to download</span>
+      </div>
+    </div>
+    {% endif %}
+  {% endcapture %}
+
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <nav class="hero-nav">
+      <a class="brand" href="/apps">
+        <img src="{{ page.icon }}" alt="" width="34" height="34">
+        <span>{{ page.app_name }}</span>
+      </a>
+      {{ badge }}
+    </nav>
+
+    <div class="hero-main">
+      <div class="hero-copy">
+        <h1>{{ page.tagline }}</h1>
+        <p class="sub">{{ page.hero_sub | default: page.description }}</p>
+        <div class="hero-actions">
+          {{ qr }}
+        </div>
+        {% if page.social_proof %}<p class="social-proof">{{ page.social_proof }}</p>{% endif %}
+      </div>
+      {% if page.hero_phone %}
+      <div class="hero-phone">
+        <div class="phone"><img src="{{ page.hero_phone }}" alt="{{ page.app_name }} app home screen" loading="eager"></div>
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <main>
+    {% if page.feature_rows %}
+    <section class="features">
+      {% for f in page.feature_rows %}
+      <div class="feature-row">
+        <div class="feature-media">
+          <div class="segment"><img src="{{ f.img }}" alt="{{ f.title | escape }}" loading="lazy"></div>
+        </div>
+        <div class="feature-text">
+          {% if f.kicker %}<p class="kicker">{{ f.kicker }}</p>{% endif %}
+          <h2>{{ f.title }}</h2>
+          <p>{{ f.body }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if page.phones %}
+    <section class="gallery">
+      <div class="section-head">
+        <h2>{{ page.gallery_title | default: 'See it in action' }}</h2>
+        {% if page.gallery_sub %}<p>{{ page.gallery_sub }}</p>{% endif %}
+      </div>
+      <div class="gallery-track">
+        {% for p in page.phones %}
+        <div class="phone"><img src="{{ p.img }}" alt="{{ p.alt | escape }}" loading="lazy"></div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if page.trust_points %}
+    <section class="trust">
+      {% for t in page.trust_points %}
+      <div class="trust-point">
+        <h3>{{ t.title }}</h3>
+        <p>{{ t.body }}</p>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <section class="closing">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="closing-inner">
+        <h2>{{ page.closing_title | default: 'Get started today' }}</h2>
+        {% if page.closing_body %}<p>{{ page.closing_body }}</p>{% endif %}
+        <div class="closing-actions">
+          {{ badge }}
+          {{ qr }}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <nav>
+      <a href="/apps">All apps</a>
+      {% if page.privacy %}<a href="{{ page.privacy }}">Privacy</a>{% endif %}
+      <a href="/">hesh.am</a>
+    </nav>
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+  </footer>
+
+</body>
+</html>
