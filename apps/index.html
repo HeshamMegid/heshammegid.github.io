@@ -7,18 +7,25 @@ permalink: /apps
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Apps by {{ site.title }}</title>
-  <meta name="description" content="iPhone apps built by {{ site.title }}, including Ease (migraine tracker) and TracKit (daily tracker).">
+  <meta name="description" content="iPhone apps designed and built by Hesham Abd-Elmegid, an independent developer. Including Ease (migraine tracker) and TracKit (daily tracker).">
   <link rel="canonical" href="{{ site.url }}/apps">
   <meta property="og:title" content="Apps by {{ site.title }}">
-  <meta property="og:description" content="iPhone apps built by {{ site.title }}.">
+  <meta property="og:description" content="iPhone apps designed and built by an independent developer.">
   <meta property="og:url" content="{{ site.url }}/apps">
+  <meta property="og:image" content="{{ site.url }}/assets/apps/profile.png">
   <link rel="stylesheet" href="/assets/apps/app.css">
 </head>
 <body class="apps-index">
-  <header class="index-head">
-    <h1>Apps</h1>
-    <p>Thoughtful iPhone apps I design and build.</p>
+  <header class="intro">
+    <img class="avatar" src="/assets/apps/profile.png" alt="Hesham Abd-Elmegid" width="104" height="104">
+    <h1>Hi, I'm Hesham 👋</h1>
+    <p class="role">Independent app developer</p>
+    <p class="note">Every app here started as something I needed for myself, then kept refining until it felt right. I design them, build them, and answer my own support emails. If one of them helps you, that genuinely makes my day.</p>
   </header>
+
+  <div class="apps-head">
+    <h2>My apps</h2>
+  </div>
 
   <main class="app-grid">
     {% assign apps = site.data.apps %}

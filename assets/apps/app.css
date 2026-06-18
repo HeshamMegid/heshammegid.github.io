@@ -33,18 +33,14 @@ img { max-width: 100%; }
 .badge-link { display: inline-flex; line-height: 0; flex: none; }
 .badge-link img { height: 46px; width: auto; }
 
-/* ---------- QR ---------- */
-.qr {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: rgba(255,255,255,.14);
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 18px;
-  padding: 12px 16px 12px 12px;
-}
-.qr img { width: 96px; height: 96px; background: #fff; border-radius: 10px; padding: 7px; }
-.qr span { font-size: .85rem; color: rgba(255,255,255,.9); text-align: left; line-height: 1.35; }
+/* ---------- Get-app unit: badge + QR together ----------
+   On mobile it's just the plain badge; on desktop it becomes a frosted card
+   that also holds a divider + QR, so the two read as one cohesive unit. */
+.get-app { display: inline-flex; align-items: center; gap: 18px; }
+.qr { align-items: center; gap: 14px; }
+.qr-div { width: 1px; align-self: stretch; background: rgba(255,255,255,.25); }
+.qr img { width: 78px; height: 78px; background: #fff; border-radius: 9px; padding: 6px; }
+.qr-cap { font-size: .85rem; font-weight: 600; line-height: 1.25; max-width: 9ch; color: rgba(255,255,255,.92); }
 
 /* ---------- Phone frame ---------- */
 .phone {
@@ -57,12 +53,18 @@ img { max-width: 100%; }
 }
 .phone img { display: block; width: 100%; border-radius: 37px; }
 
+/* ---------- Site header (solid bar; icon sits on page bg, no contrast issue) ---------- */
+.site-header { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--border); }
+.site-header-inner { max-width: var(--maxw); margin: 0 auto; padding: 12px clamp(20px, 5vw, 40px); }
+.brand { display: inline-flex; align-items: center; gap: 11px; color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.15rem; }
+.brand img { border-radius: 24%; box-shadow: 0 2px 6px rgba(20,20,45,.18); }
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
   overflow: hidden;
   color: #fff;
-  padding: 22px clamp(20px, 5vw, 56px) clamp(56px, 8vw, 96px);
+  padding: clamp(48px, 8vw, 92px) clamp(20px, 5vw, 56px) clamp(56px, 8vw, 96px);
 }
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
@@ -72,20 +74,12 @@ img { max-width: 100%; }
   content: ""; position: absolute; inset: 0;
   background: radial-gradient(120% 70% at 80% -10%, rgba(255,255,255,.20), transparent 60%);
 }
-.hero-nav, .hero-main { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; }
-.hero-nav {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 8px 0 0;
-}
-.brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 700; font-size: 1.15rem; }
-.brand img { border-radius: 24%; }
-
 .hero-main {
+  position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
   align-items: center;
-  margin-top: clamp(32px, 6vw, 64px);
 }
 .hero-copy h1 {
   font-size: clamp(2.1rem, 5.4vw, 3.4rem);
@@ -110,13 +104,9 @@ img { max-width: 100%; }
 }
 .feature-text h2 { font-size: clamp(1.5rem, 3.2vw, 2.05rem); letter-spacing: -.015em; line-height: 1.15; margin: 0 0 .45em; }
 .feature-text p { color: var(--text-soft); font-size: 1.08rem; margin: 0; max-width: 46ch; }
-.segment {
-  background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 12%, #fff) 0%, color-mix(in srgb, var(--accent) 4%, #fff) 100%);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: clamp(20px, 4vw, 38px);
-}
-.segment img { display: block; width: 100%; border-radius: 16px; box-shadow: 0 16px 38px rgba(20,20,45,.16); }
+/* Full phone frame: the whole screen in a device, grounded and recognizable. */
+.feature-media { display: flex; justify-content: center; }
+.feature-media .phone { max-width: 270px; width: 100%; }
 
 /* ---------- Gallery ---------- */
 .gallery { max-width: var(--maxw); margin: clamp(64px, 10vw, 120px) auto; padding: 0 clamp(20px, 5vw, 40px); }
@@ -127,7 +117,7 @@ img { max-width: 100%; }
   display: flex; gap: 26px; overflow-x: auto; padding: 8px 4px 30px;
   scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
 }
-.gallery-track .phone { flex: 0 0 auto; width: 240px; scroll-snap-align: center; }
+.gallery-track .phone { flex: 0 0 auto; width: 300px; scroll-snap-align: center; }
 
 /* ---------- Trust ---------- */
 .trust {
@@ -140,9 +130,9 @@ img { max-width: 100%; }
 
 /* ---------- Closing ---------- */
 .closing { position: relative; overflow: hidden; color: #fff; text-align: center; padding: clamp(64px, 9vw, 100px) 24px; }
-.closing-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+.closing-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
 .closing-inner h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); letter-spacing: -.02em; margin: 0 0 .4em; }
-.closing-inner p { color: rgba(255,255,255,.9); margin: 0 0 30px; font-size: 1.1rem; }
+.closing-inner p { color: rgba(255,255,255,.9); margin: 0 auto 30px; font-size: 1.1rem; max-width: 48ch; }
 .closing-actions { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
 
 /* ---------- Footer ---------- */
@@ -157,15 +147,21 @@ img { max-width: 100%; }
   .badge-link img { height: 54px; }
   .hero-main { grid-template-columns: 1.05fr .95fr; gap: clamp(40px, 6vw, 80px); }
   .hero-phone .phone { max-width: 320px; }
+  .gallery-track .phone { width: 320px; }
+  .get-app { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); border-radius: 18px; padding: 14px 20px; }
   .feature-row { grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 84px); }
   .feature-row:nth-child(even) .feature-media { order: 2; }
 }
 
-/* ---------- Apps index ---------- */
-.index-head { text-align: center; max-width: 620px; margin: 0 auto; padding: 80px 24px 48px; }
-.index-head h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -.02em; margin: 0 0 .3em; }
-.index-head p { color: var(--text-soft); font-size: 1.1rem; margin: 0; }
-.app-grid { max-width: 920px; margin: 0 auto; padding: 0 24px 90px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+/* ---------- Apps index (personal) ---------- */
+.intro { text-align: center; max-width: 620px; margin: 0 auto; padding: 88px 24px 8px; }
+.intro .avatar { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 26px rgba(20,20,45,.20); margin-bottom: 22px; }
+.intro h1 { font-size: clamp(1.9rem, 5.4vw, 2.7rem); font-weight: 800; letter-spacing: -.02em; margin: 0 0 .2em; }
+.intro .role { color: var(--accent-dark); font-weight: 600; font-size: 1.05rem; margin: 0 0 1.1em; }
+.intro .note { color: var(--text-soft); font-size: 1.12rem; margin: 0 auto; max-width: 52ch; }
+.apps-head { text-align: center; max-width: 620px; margin: 56px auto 24px; padding: 0 24px; }
+.apps-head h2 { font-size: 1.15rem; letter-spacing: .01em; text-transform: uppercase; color: var(--text-soft); font-weight: 700; margin: 0; }
+.app-grid { max-width: 920px; margin: 0 auto; padding: 0 24px 70px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
 .app-card { display: flex; align-items: center; gap: 18px; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: transform .12s ease, box-shadow .12s ease; }
 .app-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(20,20,40,.12); }
 .app-card img { width: 72px; height: 72px; border-radius: 22%; flex: none; box-shadow: 0 6px 16px rgba(0,0,0,.14); }
@@ -180,8 +176,4 @@ img { max-width: 100%; }
 /* ---------- Dark mode ---------- */
 @media (prefers-color-scheme: dark) {
   :root { --bg: #0e0e13; --text: #f2f2f7; --text-soft: #9b9ba8; --card: #18181f; --border: #272730; }
-  .segment {
-    background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 26%, #15151c) 0%, color-mix(in srgb, var(--accent) 10%, #15151c) 100%);
-    border-color: #2c2c38;
-  }
 }

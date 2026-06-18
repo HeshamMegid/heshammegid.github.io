@@ -48,61 +48,47 @@
 
   {% capture qr %}
     {% if page.qr %}
-    <div class="qr-wrap only-desktop">
-      <div class="qr">
-        <img src="{{ page.qr }}" alt="QR code to download {{ page.app_name }}" width="132" height="132">
-        <span>Point your phone camera<br>here to download</span>
-      </div>
+    <div class="qr only-desktop">
+      <span class="qr-div" aria-hidden="true"></span>
+      <img src="{{ page.qr }}" alt="QR code to download {{ page.app_name }}" width="118" height="118">
+      <span class="qr-cap">Scan to download</span>
     </div>
     {% endif %}
   {% endcapture %}
 
-  <header class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-
-    <nav class="hero-nav">
+  <header class="site-header">
+    <div class="site-header-inner">
       <a class="brand" href="/apps">
-        <img src="{{ page.icon }}" alt="" width="34" height="34">
+        <img src="{{ page.icon }}" alt="" width="32" height="32">
         <span>{{ page.app_name }}</span>
       </a>
-      {{ badge }}
-    </nav>
+    </div>
+  </header>
+
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
 
     <div class="hero-main">
       <div class="hero-copy">
         <h1>{{ page.tagline }}</h1>
         <p class="sub">{{ page.hero_sub | default: page.description }}</p>
         <div class="hero-actions">
-          {{ qr }}
+          <div class="get-app">
+            {{ badge }}
+            {{ qr }}
+          </div>
         </div>
         {% if page.social_proof %}<p class="social-proof">{{ page.social_proof }}</p>{% endif %}
       </div>
       {% if page.hero_phone %}
       <div class="hero-phone">
-        <div class="phone"><img src="{{ page.hero_phone }}" alt="{{ page.app_name }} app home screen" loading="eager"></div>
+        <div class="phone"><img src="{{ page.hero_phone }}" alt="{{ page.app_name }} app screen" loading="eager"></div>
       </div>
       {% endif %}
     </div>
   </header>
 
   <main>
-    {% if page.feature_rows %}
-    <section class="features">
-      {% for f in page.feature_rows %}
-      <div class="feature-row">
-        <div class="feature-media">
-          <div class="segment"><img src="{{ f.img }}" alt="{{ f.title | escape }}" loading="lazy"></div>
-        </div>
-        <div class="feature-text">
-          {% if f.kicker %}<p class="kicker">{{ f.kicker }}</p>{% endif %}
-          <h2>{{ f.title }}</h2>
-          <p>{{ f.body }}</p>
-        </div>
-      </div>
-      {% endfor %}
-    </section>
-    {% endif %}
-
     {% if page.phones %}
     <section class="gallery">
       <div class="section-head">
@@ -114,6 +100,23 @@
         <div class="phone"><img src="{{ p.img }}" alt="{{ p.alt | escape }}" loading="lazy"></div>
         {% endfor %}
       </div>
+    </section>
+    {% endif %}
+
+    {% if page.feature_rows %}
+    <section class="features">
+      {% for f in page.feature_rows %}
+      <div class="feature-row">
+        <div class="feature-media">
+          <div class="phone"><img src="{{ f.img }}" alt="{{ f.title | escape }}" loading="lazy"></div>
+        </div>
+        <div class="feature-text">
+          {% if f.kicker %}<p class="kicker">{{ f.kicker }}</p>{% endif %}
+          <h2>{{ f.title }}</h2>
+          <p>{{ f.body }}</p>
+        </div>
+      </div>
+      {% endfor %}
     </section>
     {% endif %}
 
@@ -134,8 +137,10 @@
         <h2>{{ page.closing_title | default: 'Get started today' }}</h2>
         {% if page.closing_body %}<p>{{ page.closing_body }}</p>{% endif %}
         <div class="closing-actions">
-          {{ badge }}
-          {{ qr }}
+          <div class="get-app">
+            {{ badge }}
+            {{ qr }}
+          </div>
         </div>
       </div>
     </section>
