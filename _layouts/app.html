@@ -121,13 +121,33 @@
     {% endif %}
 
     {% if page.trust_points %}
-    <section class="trust">
+    {% assign trust_count = page.trust_points | size %}
+    <section class="trust{% if trust_count == 4 %} trust-2x2{% endif %}">
       {% for t in page.trust_points %}
       <div class="trust-point">
         <h3>{{ t.title }}</h3>
         <p>{{ t.body }}</p>
       </div>
       {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if page.reviews %}
+    <section class="reviews">
+      <div class="section-head">
+        <h2>{{ page.reviews_title | default: 'What people are saying' }}</h2>
+        {% if page.reviews_sub %}<p>{{ page.reviews_sub }}</p>{% endif %}
+      </div>
+      <div class="reviews-grid">
+        {% for r in page.reviews %}
+        <figure class="review-card">
+          <div class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <h3>{{ r.title }}</h3>
+          <blockquote>{{ r.body }}</blockquote>
+          <figcaption>{% if r.flag %}<span class="review-flag" aria-hidden="true">{{ r.flag }}</span> {% endif %}{{ r.author }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
     </section>
     {% endif %}
 

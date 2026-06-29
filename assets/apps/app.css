@@ -124,9 +124,31 @@ img { max-width: 100%; }
   max-width: var(--maxw); margin: 0 auto clamp(64px, 10vw, 120px); padding: 0 clamp(20px, 5vw, 40px);
   display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px;
 }
+/* Four trust points read better as a balanced 2x2 than a narrow 4-across row. */
+.trust-2x2 { max-width: 880px; }
+@media (min-width: 768px) {
+  .trust-2x2 { grid-template-columns: repeat(2, 1fr); }
+}
 .trust-point { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 26px; }
 .trust-point h3 { margin: 0 0 .5em; font-size: 1.15rem; color: var(--accent-dark); }
 .trust-point p { margin: 0; color: var(--text-soft); }
+
+/* ---------- Reviews (social proof) ---------- */
+.reviews { max-width: var(--maxw); margin: 0 auto clamp(64px, 10vw, 120px); padding: 0 clamp(20px, 5vw, 40px); }
+.reviews .section-head { margin-bottom: 44px; }
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px;
+  align-items: start;
+}
+.review-card {
+  margin: 0; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 28px 26px; display: flex; flex-direction: column;
+}
+.review-stars { color: #ff9f0a; font-size: 1rem; letter-spacing: 3px; margin-bottom: 14px; }
+.review-card h3 { margin: 0 0 .55em; font-size: 1.15rem; letter-spacing: -.01em; }
+.review-card blockquote { margin: 0 0 18px; color: var(--text-soft); font-size: 1.02rem; }
+.review-card figcaption { margin-top: auto; color: var(--text); font-weight: 600; font-size: .95rem; font-style: italic; }
+.review-flag { font-style: normal; }
 
 /* ---------- Closing ---------- */
 .closing { position: relative; overflow: hidden; color: #fff; text-align: center; padding: clamp(64px, 9vw, 100px) 24px; }
