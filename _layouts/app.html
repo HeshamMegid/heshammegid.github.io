@@ -120,6 +120,29 @@
     </section>
     {% endif %}
 
+    {% if page.bento %}
+    <section class="bento-section">
+      <div class="section-head">
+        <h2>{{ page.bento_title | default: 'Everything you need' }}</h2>
+        {% if page.bento_sub %}<p>{{ page.bento_sub }}</p>{% endif %}
+      </div>
+      <div class="bento">
+        {% for f in page.bento %}
+        <div class="bento-item size-{{ f.size | default: 'small' }}{% if f.tone == 'accent' %} tone-accent{% endif %}{% if f.img %} has-media{% endif %}">
+          <div class="bento-text">
+            {% if f.kicker %}<p class="kicker">{{ f.kicker }}</p>{% endif %}
+            <h3>{{ f.title }}</h3>
+            {% if f.body %}<p>{{ f.body }}</p>{% endif %}
+          </div>
+          {% if f.img %}
+          <div class="bento-media"><div class="phone"><img src="{{ f.img }}" alt="{{ f.title | escape }}" loading="lazy"></div></div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
     {% if page.trust_points %}
     {% assign trust_count = page.trust_points | size %}
     <section class="trust{% if trust_count == 4 %} trust-2x2{% endif %}">
