@@ -7,7 +7,7 @@ permalink: /apps/
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Apps by {{ site.title }}</title>
-  <meta name="description" content="iPhone apps designed and built by Hesham Abd-Elmegid, an independent developer. Including Ease (migraine tracker) and TracKit (daily tracker).">
+  <meta name="description" content="iPhone apps designed and built by Hesham Abd-Elmegid, an independent developer. Including Ease (migraine tracker), TracKit (daily tracker), and Brisk (fitness goals).">
   <link rel="canonical" href="{{ site.url }}/apps/">
   <meta property="og:title" content="Apps by {{ site.title }}">
   <meta property="og:description" content="iPhone apps designed and built by an independent developer.">
@@ -17,10 +17,22 @@ permalink: /apps/
 </head>
 <body class="apps-index">
   <header class="intro">
-    <img class="avatar" src="/assets/apps/profile.png" alt="Hesham Abd-Elmegid" width="104" height="104">
-    <h1>Hi, I'm Hesham 👋</h1>
-    <p class="role">Independent app developer</p>
-    <p class="note">Every app here started as something I needed for myself, then kept refining until it felt right. I design them, build them, and answer my own support emails. I hope one of them earns a spot on your home screen.</p>
+    <div class="intro-id">
+      <div class="avatar-wrap">
+        <button class="avatar-btn" type="button" aria-label="Say hi to Hesham">
+          <img class="avatar" src="/assets/apps/profile.png" alt="" width="104" height="104">
+        </button>
+        <span class="bubble" role="status" aria-live="polite"></span>
+      </div>
+      <div>
+        <h1>Hi, I'm Hesham <span class="wave" aria-hidden="true">👋</span></h1>
+        <p class="role">Independent app developer</p>
+      </div>
+    </div>
+    <p class="note">Each of these started as an app I needed and couldn't find, and I design and build every one of them myself.</p>
+    <p class="note">TracKit began in 2013 as a simple tracker for my own numbers, and I've spent more than a decade shaping it into what it is today.</p>
+    <p class="note">Ease came from living with migraines and wanting a better way to log attacks and figure out what triggers them.</p>
+    <p class="note">Brisk started as a feature I wanted in TracKit, long-term workout goals that fill in from Apple Health, and grew into an app of its own.</p>
   </header>
 
   <div class="apps-head">
@@ -53,5 +65,52 @@ permalink: /apps/
   <footer class="index-foot">
     <a href="/">← Back to hesh.am</a>
   </footer>
+
+  <script>
+    // Hover (or tap) the avatar for a different line each time.
+    (function () {
+      var lines = [
+        "Currently fixing a bug I shipped yesterday.",
+        "Yes, I use all three of these every day.",
+        "I've been working on TracKit since 2013. It's still not finished.",
+        "Brisk took five years to build. Most of them were spent not building it.",
+        "Every support email is read by the entire support team. That's me.",
+        "Ease exists because my head and I don't always get along.",
+        "Brisk keeps reminding me I'm behind on my own goal. I built that. I regret nothing."
+      ];
+      var btn = document.querySelector('.avatar-btn');
+      var bubble = document.querySelector('.bubble');
+      var wrap = document.querySelector('.avatar-wrap');
+      var i = -1, hideTimer;
+      function say() {
+        i = (i + 1) % lines.length;
+        bubble.textContent = lines[i];
+        wrap.classList.add('talking');
+        clearTimeout(hideTimer);
+      }
+      function hush(delay) {
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(function () { wrap.classList.remove('talking'); }, delay);
+      }
+      var hovering = false;
+      // Mouse hover shows a line; touch taps don't count as hover (they fall through to click).
+      btn.addEventListener('pointerenter', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        hovering = true; say();
+      });
+      btn.addEventListener('pointerleave', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        hovering = false; hush(400);
+      });
+      // A click or tap shows the next line; on touch it fades after a few seconds.
+      btn.addEventListener('click', function () {
+        say();
+        if (!hovering) hush(4000);
+      });
+      // Keyboard focus only, so a mouse click doesn't advance twice.
+      btn.addEventListener('focus', function () { if (btn.matches(':focus-visible')) say(); });
+      btn.addEventListener('blur', function () { if (!hovering) hush(0); });
+    })();
+  </script>
 </body>
 </html>

@@ -235,12 +235,55 @@ img { max-width: 100%; }
 }
 
 /* ---------- Apps index (personal) ---------- */
-.intro { text-align: center; max-width: 620px; margin: 0 auto; padding: 88px 24px 8px; }
-.intro .avatar { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 26px rgba(20,20,45,.20); margin-bottom: 22px; }
-.intro h1 { font-size: clamp(1.9rem, 5.4vw, 2.7rem); font-weight: 800; letter-spacing: -.02em; margin: 0 0 .2em; }
-.intro .role { color: var(--accent-dark); font-weight: 600; font-size: 1.05rem; margin: 0 0 1.1em; }
-.intro .note { color: var(--text-soft); font-size: 1.12rem; margin: 0 auto; max-width: 52ch; }
-.apps-head { text-align: center; max-width: 620px; margin: 56px auto 24px; padding: 0 24px; }
+/* Left-aligned personal note: avatar beside the name, story paragraphs below,
+   all on the same left edge as the app grid (920px column). */
+.intro { max-width: 920px; margin: 0 auto; padding: 88px 24px 8px; }
+.intro-id { display: flex; align-items: center; gap: 22px; margin-bottom: 26px; }
+.intro .avatar { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 26px rgba(20,20,45,.20); flex: none; }
+.intro h1 { font-size: clamp(1.9rem, 5.4vw, 2.7rem); font-weight: 800; letter-spacing: -.02em; margin: 0 0 .15em; }
+.intro .role { color: var(--accent-dark); font-weight: 600; font-size: 1.05rem; margin: 0; }
+.intro .note { color: var(--text-soft); font-size: 1.12rem; margin: 0; max-width: 62ch; text-wrap: pretty; }
+.intro .note + .note { margin-top: .75em; }
+/* The 👋 waves once on load and again whenever you hover the name. Two
+   identical keyframes so switching names on hover restarts the animation. */
+.wave { display: inline-block; transform-origin: 70% 80%; animation: wave 1.6s ease-in-out .4s 1; }
+.intro h1:hover .wave { animation: wave-again 1.6s ease-in-out 1; }
+@keyframes wave { 0%, 60%, 100% { transform: rotate(0); } 10%, 30% { transform: rotate(14deg); } 20% { transform: rotate(-8deg); } 40% { transform: rotate(-4deg); } 50% { transform: rotate(10deg); } }
+@keyframes wave-again { 0%, 60%, 100% { transform: rotate(0); } 10%, 30% { transform: rotate(14deg); } 20% { transform: rotate(-8deg); } 40% { transform: rotate(-4deg); } 50% { transform: rotate(10deg); } }
+@media (prefers-reduced-motion: reduce) { .wave, .intro h1:hover .wave { animation: none; } }
+/* Hover/tap the avatar for a speech bubble (lines live in apps/index.html). */
+.avatar-wrap { position: relative; flex: none; }
+.avatar-btn { display: block; padding: 0; border: 0; background: none; border-radius: 50%; cursor: pointer; transition: transform .18s ease; }
+.avatar-btn:hover, .avatar-wrap.talking .avatar-btn { transform: rotate(-4deg) scale(1.03); }
+.avatar-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.bubble {
+  position: absolute; left: 50%; bottom: calc(100% + 14px); z-index: 5;
+  width: max-content; max-width: min(340px, calc(100vw - 48px)); padding: 10px 14px;
+  background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(20,20,45,.16);
+  font-size: .92rem; font-weight: 500; line-height: 1.35; text-wrap: balance;
+  transform: translate(-28px, 6px) scale(.96); transform-origin: 28px 100%;
+  opacity: 0; pointer-events: none; transition: opacity .16s ease, transform .16s ease;
+}
+/* Tail pointing down at the avatar. */
+.bubble::after {
+  content: ""; position: absolute; left: 20px; top: 100%; width: 14px; height: 14px;
+  background: inherit; border: inherit; border-top: 0; border-left: 0;
+  transform: translateY(-7px) rotate(45deg);
+}
+.avatar-wrap.talking .bubble { opacity: 1; transform: translate(-28px, 0) scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  .avatar-btn, .bubble { transition: none; }
+  .avatar-btn:hover, .avatar-wrap.talking .avatar-btn { transform: none; }
+}
+/* Phones: a smaller avatar keeps the name on one line beside it. */
+@media (max-width: 540px) {
+  .intro { padding-top: 92px; }
+  .intro-id { gap: 16px; margin-bottom: 22px; }
+  .intro .avatar { width: 72px; height: 72px; }
+  .intro h1 { font-size: 1.7rem; }
+}
+.apps-head { max-width: 920px; margin: 56px auto 24px; padding: 0 24px; }
 .apps-head h2 { font-size: 1.15rem; letter-spacing: .01em; text-transform: uppercase; color: var(--text-soft); font-weight: 700; margin: 0; }
 .app-grid { max-width: 920px; margin: 0 auto; padding: 0 24px 70px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
 .app-card { display: flex; align-items: center; gap: 18px; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; transition: transform .12s ease, box-shadow .12s ease; }
