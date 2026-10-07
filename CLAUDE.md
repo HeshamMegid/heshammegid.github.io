@@ -45,10 +45,15 @@ untouched.
 ## How to add a new app
 
 1. **Gather source material from the app's own repo** (e.g. `~/Apps/iOS/<App>`):
-   - App icon (the 1024px `AppIcon` png).
+   - App icon (the 1024px `AppIcon` png). If the app uses an Icon Composer
+     `.icon` bundle (Brisk), grab the rendered 1024px icon from the App Store
+     listing instead (`itunes.apple.com/lookup?id=<id>` → `artworkUrl512`,
+     swap `512x512bb.jpg` for `1024x1024bb.png`).
    - Screenshots: each app has a screenshot pipeline. Use the **raw, unframed**
      captures (Ease: `Image Assets/Screenshots/v*/raw/`; TracKit:
-     `Image Sources/v*/raw/`). Do **not** use the App-Store "final" composites
+     `Image Sources/v*/raw/`; Brisk: `Screenshots/<version>/raw/`, gitignored,
+     so run `Image Sources/v1.0/capture.sh` first. On Xcode 27 its
+     `open -a Simulator` fails; open DeviceHub.app instead). Do **not** use the App-Store "final" composites
      (they have baked-in gradient + headline text).
    - Brand colors: from the app's `compose.swift` (the screenshot gradient) or
      its `Colors.swift`.
@@ -141,3 +146,4 @@ closing_body: "..."
 |---|---|---|
 | Ease | `#5959D9` (iris) | `#4542BD` |
 | TracKit | `#129EF5` (dodger blue) | `#0878DB` |
+| Brisk | `#5B6BF0` (indigo) | `#2F388A` |

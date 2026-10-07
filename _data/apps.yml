@@ -13,3 +13,10 @@
   icon: /assets/apps/trackit/icon.png
   url: /apps/trackit
   status: live
+
+- name: "Brisk"
+  slug: brisk
+  tagline: "Long-term fitness goals, tracked automatically from your Apple Health workouts."
+  icon: /assets/apps/brisk/icon.png
+  url: /apps/brisk
+  status: live
