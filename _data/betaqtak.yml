@@ -77,7 +77,7 @@ ar:
       body: "عدد غير محدود من البطاقات للعائلة كلها، مع دعم المشاركة العائلية."
       accent: true
 
-  closing_title: "صوّر بطاقتك مرة واحدة، واسترح."
+  closing_title: "صوّرها مرة، وشارك اللي أنت عايزه بس."
   egypt_note: "«بطاقتك» مخصص لبطاقات الرقم القومي المصرية."
   footer_apps: "تطبيقاتي الأخرى"
 
@@ -148,7 +148,7 @@ en:
       body: "As many IDs as you like, for the whole family. Family Sharing is supported."
       accent: true
 
-  closing_title: "Scan your ID once, and relax."
+  closing_title: "Scan once. Share on your terms."
   egypt_note: "Betaqtak is for Egyptian national ID cards."
   footer_apps: "More apps"
 
