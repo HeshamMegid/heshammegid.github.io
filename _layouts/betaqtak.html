@@ -54,11 +54,18 @@
 <body class="bq">
 
   {%- capture cta -%}
-    {%- if d.live -%}
-    <a class="cta" href="{{ d.appstore }}" rel="noopener">{% include betaqtak-apple.svg %}<span>{{ t.cta }}</span></a>
-    {%- else -%}
-    <span class="cta cta-soon">{% include betaqtak-apple.svg %}<span>{{ t.cta_soon }}</span></span>
-    {%- endif -%}
+    {%- capture badge -%}<img src="/assets/apps/betaqtak/badge-{{ t.lang }}.svg" alt="{{ t.cta }}" width="150" height="50">{%- endcapture -%}
+    <div class="get-app">
+      {%- if d.live %}
+      <a class="badge" href="{{ d.appstore }}" rel="noopener">{{ badge }}</a>
+      {%- else %}
+      <span class="badge" title="{{ t.cta_soon }}">{{ badge }}</span>
+      {%- endif %}
+      <div class="qr">
+        <img src="/assets/apps/betaqtak/qr.svg" alt="" width="76" height="76">
+        <span>{{ t.qr_caption }}</span>
+      </div>
+    </div>
   {%- endcapture -%}
 
   <header class="bar">

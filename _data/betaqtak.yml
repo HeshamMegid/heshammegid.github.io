@@ -25,7 +25,8 @@ ar:
   other_home: /apps/betaqtak/en/
   other_privacy: /apps/betaqtak/en/privacy
   nav_privacy: "الخصوصية"
-  cta: "حمّله من App Store"
+  cta: "تنزيل من App Store"
+  qr_caption: "صوّر الرمز بالكاميرا للتحميل"
   cta_soon: "قريبًا على App Store"
   free_note: "مجاني لبطاقة واحدة بكل المزايا."
 
@@ -96,6 +97,7 @@ en:
   other_privacy: /apps/betaqtak/privacy
   nav_privacy: "Privacy"
   cta: "Download on the App Store"
+  qr_caption: "Scan with your camera to download"
   cta_soon: "Coming soon to the App Store"
   free_note: "Free for one ID, with every feature."
 
