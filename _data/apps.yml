@@ -20,3 +20,10 @@
   icon: /assets/apps/brisk/icon.png
   url: /apps/brisk
   status: live
+
+- name: "Betaqtak"
+  slug: betaqtak
+  tagline: "Your Egyptian national ID on iPhone. Copy the number, share a watermarked copy."
+  icon: /assets/apps/betaqtak/icon.png
+  url: /apps/betaqtak/
+  status: live

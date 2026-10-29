@@ -1,0 +1,153 @@
+# Copy for the Betaqtak site (/apps/betaqtak). Arabic is the default page; English mirrors it.
+# Wording follows the app's Arabic rules (see the Betaqtak repo's CLAUDE.md): اضغط, حذف, صوّر,
+# بصمة الوجه, iPhone in Latin script, بطاقة الرقم القومي. No em dashes.
+
+# true links the App Store button; false shows "coming soon" instead.
+live: true
+appstore: "https://apps.apple.com/app/betaqtak/id6827935371"
+accent: "#2F5BEA"
+contact: "betaqtak@hesh.am"
+
+# The watermark demo's two lines, Arabic first, as IDRender's Watermark writes them (purpose only).
+watermark_ar: "صورة مقدمة لغرض إيجار شقة بتاريخ ٢٩ أكتوبر ٢٠٢٦. غير صالحة لأي غرض آخر"
+watermark_en: "Copy provided for an apartment rental on 29 October 2026. Not valid for any other purpose."
+
+ar:
+  lang: ar
+  dir: rtl
+  name: "بطاقتك"
+  title: "بطاقتك: بطاقة الرقم القومي على iPhone"
+  description: "احفظ بطاقة الرقم القومي لك ولعائلتك على iPhone، وانسخ رقمك القومي في ثوانٍ، وأرسل نسخة تُخفي ما لا يحتاجه المستلم وعليها علامة مائية."
+  home: /apps/betaqtak/
+  privacy: /apps/betaqtak/privacy
+  other_lang_label: "English"
+  other_lang_code: en
+  other_home: /apps/betaqtak/en/
+  other_privacy: /apps/betaqtak/en/privacy
+  nav_privacy: "الخصوصية"
+  cta: "حمّله من App Store"
+  cta_soon: "قريبًا على App Store"
+  free_note: "مجاني لبطاقة واحدة بكل المزايا."
+
+  hero_kicker: "لبطاقات الرقم القومي المصرية"
+  hero_title: "بطاقتك جاهزة<br>وقت ما تحتاجها."
+  hero_sub: "صوّر بطاقتك مرة واحدة، وانسخ رقمك القومي في ثانية، وأرسل نسخة تخفي اللي يخصّك ولا تنفع لأي غرض آخر."
+  hero_alt: "بطاقة مريم أحمد في «بطاقتك» والرقم القومي جاهز للنسخ"
+  copied: "تم نسخ الرقم القومي"
+
+  chapters_title: "كل ما تحتاجه بطاقتك، في تطبيق واحد"
+  chapters:
+    - screen: share
+      title: "أرسل نسخة تُخفي ما يخصّك"
+      body: "طلب منك موظف أو مالك شقة أو مشترٍ صورة من بطاقتك؟ اختر لمن النسخة ولأي غرض، مثل إيجار شقة أو بيع سيارة، وأرسلها صورةً أو ملف PDF على أي تطبيق، واتساب أو البريد أو غيرهما."
+    - screen: redaction
+      title: "اضغط على أي بيان لإخفائه"
+      body: "أخفِ الديانة أو العنوان أو الحالة الاجتماعية أو المهنة. البيانات المخفية تُغطّى نهائيًا، لا تُموَّه، ولا يمكن استرجاعها من النسخة المرسلة."
+    - screen: home
+      title: "بطاقات عائلتك في مكان واحد"
+      body: "احفظ بطاقات زوجك أو زوجتك ووالديك وأبنائك معًا، وانسخ منها وشاركها بالطريقة نفسها."
+    - screen: expiry
+      title: "تذكير قبل انتهاء البطاقة"
+      body: "فعّل التذكير لأي بطاقة، وسينبهك «بطاقتك» قبل انتهائها بـ٦٠ يومًا وبـ١٤ يومًا."
+
+  watermark_title: "علامة مائية تقول لمن النسخة"
+  watermark_body: "كل نسخة تُرسم من جديد، وعليها بالعربية والإنجليزية لمن هي ولأي غرض وبأي تاريخ. أما بطاقتك الأصلية فلا تخرج من «بطاقتك» أبدًا."
+
+  demo_hint: "اضغط على العنوان لإخفائه أو إظهاره"
+  demo_alt: "بطاقة نموذجية عليها علامة مائية والعنوان مغطّى"
+
+  privacy_title: "خصوصيتك أولًا"
+  privacy_points:
+    - title: "مشفّرة على iPhone"
+      body: "بطاقاتك محفوظة على جهازك فقط، ولا تُفتح إلا ببصمة الوجه أو رمز الدخول."
+    - title: "بلا حساب"
+      body: "لا تسجيل ولا كلمة سر ولا إعلانات."
+    - title: "لا نجمع أي بيانات"
+      body: "لا تحليلات ولا تتبّع. لا نرى بطاقاتك أبدًا."
+  privacy_link: "اقرأ سياسة الخصوصية"
+
+  plans_title: "ابدأ مجانًا"
+  plans:
+    - name: "بطاقتك"
+      price: "مجاني"
+      body: "بطاقة واحدة بكل المزايا: النسخ والمشاركة والإخفاء والعلامة المائية والتذكير."
+    - name: "بطاقتك بلس"
+      price: "اشتراك سنوي أو شراء لمرة واحدة"
+      body: "عدد غير محدود من البطاقات للعائلة كلها، مع دعم المشاركة العائلية."
+      accent: true
+
+  closing_title: "صوّر بطاقتك مرة واحدة، واسترح."
+  egypt_note: "«بطاقتك» مخصص لبطاقات الرقم القومي المصرية."
+  footer_apps: "تطبيقاتي الأخرى"
+
+  doc_updated: "آخر تحديث"
+
+en:
+  lang: en
+  dir: ltr
+  name: "Betaqtak"
+  title: "Betaqtak: your Egyptian national ID on iPhone"
+  description: "Keep your Egyptian national ID, and your family's, on your iPhone. Copy your ID number in seconds, and send a watermarked copy that hides what the recipient doesn't need."
+  home: /apps/betaqtak/en/
+  privacy: /apps/betaqtak/en/privacy
+  other_lang_label: "العربية"
+  other_lang_code: ar
+  other_home: /apps/betaqtak/
+  other_privacy: /apps/betaqtak/privacy
+  nav_privacy: "Privacy"
+  cta: "Download on the App Store"
+  cta_soon: "Coming soon to the App Store"
+  free_note: "Free for one ID, with every feature."
+
+  hero_kicker: "For Egyptian national IDs"
+  hero_title: "Your ID, ready<br>whenever you need it."
+  hero_sub: "Scan your ID once, copy your national ID number in seconds, and send a copy that hides what's private and can't be used for anything else."
+  hero_alt: "Mariam Ahmed's ID in Betaqtak, with the ID number ready to copy"
+  copied: "ID number copied"
+
+  chapters_title: "Everything your ID needs, in one app"
+  chapters:
+    - screen: share
+      title: "Send a copy that hides what's private"
+      body: "A clerk, landlord or buyer needs a copy of your ID? Say who it's for and why, like an apartment rental or a car sale, and send it as an image or a PDF in any app, from WhatsApp to Mail."
+    - screen: redaction
+      title: "Tap anything to hide it"
+      body: "Hide your religion, address, marital status or occupation. Hidden fields are covered for good, not blurred, and can't be recovered from the copy you send."
+    - screen: home
+      title: "Your family's IDs, together"
+      body: "Keep the IDs of your spouse, parents and children in one place, each copyable and shareable the same way."
+    - screen: expiry
+      title: "A reminder before it expires"
+      body: "Turn on reminders for any ID and Betaqtak lets you know 60 days and 14 days before it expires."
+
+  watermark_title: "A watermark that says who it's for"
+  watermark_body: "Every copy is drawn fresh, with who it's for, why and when written across it in Arabic and English. Your original card never leaves Betaqtak."
+
+  demo_hint: "Tap the address to hide or show it"
+  demo_alt: "A sample ID with a watermark and the address covered"
+
+  privacy_title: "Private by design"
+  privacy_points:
+    - title: "Encrypted on your iPhone"
+      body: "Your IDs are kept on your device only, and open only with Face ID or your passcode."
+    - title: "No account"
+      body: "Nothing to sign up for, no password, no ads."
+    - title: "No data collected"
+      body: "No analytics, no tracking. We never see your IDs."
+  privacy_link: "Read the privacy policy"
+
+  plans_title: "Start for free"
+  plans:
+    - name: "Betaqtak"
+      price: "Free"
+      body: "One ID with every feature: copying, sharing, hiding, watermarks and reminders."
+    - name: "Betaqtak Plus"
+      price: "Yearly, or once for life"
+      body: "As many IDs as you like, for the whole family. Family Sharing is supported."
+      accent: true
+
+  closing_title: "Scan your ID once, and relax."
+  egypt_note: "Betaqtak is for Egyptian national ID cards."
+  footer_apps: "More apps"
+
+  doc_updated: "Last updated"

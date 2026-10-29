@@ -147,3 +147,24 @@ closing_body: "..."
 | Ease | `#5959D9` (iris) | `#4542BD` |
 | TracKit | `#129EF5` (dodger blue) | `#0878DB` |
 | Brisk | `#5B6BF0` (indigo) | `#2F388A` |
+
+## Betaqtak (`/apps/betaqtak/`): its own layout
+
+Betaqtak doesn't use `_layouts/app.html`. It's Arabic-first (RTL) with an English
+mirror, on a white page with the app's lapis accent (`#2F5BEA`), and a different
+structure from the other apps: a hero with one bezel-less screen, a sticky
+"tour" whose screen swaps as the steps scroll by (stacked on phones), a live
+watermark demo drawn over the blank sample card, privacy points, the free/Plus
+plans and a closing CTA.
+
+| File | Purpose |
+|---|---|
+| `_layouts/betaqtak.html` | Home and policy pages (`doc_title` switches to the policy layout). |
+| `_data/betaqtak.yml` | All copy, `ar` and `en`; `live: false` shows "coming soon" instead of the App Store link (on since 2026-10-29, ahead of approval). |
+| `assets/apps/betaqtak/` | `site.css`, `site.js`, `icon.png`, `card-front.jpg` (Mariam's sample front, rendered like the app's screenshot cards: spaced number groups, Damascus digits), `screens/{ar,en}/*.jpg`. |
+| `apps/betaqtak/index.html`, `apps/betaqtak/en/index.html` | Arabic (default) and English homes. |
+| `apps/betaqtak/privacy.md`, `apps/betaqtak/en/privacy.md` | The privacy policy, used by the app and App Store Connect. |
+
+- Screens come from the Betaqtak repo's raw captures (`fastlane/screenshots/raw/<locale>`, from `capture.sh`), resized to 760 px wide JPEG.
+- Homes are directories with trailing slashes: a `betaqtak.html` next to a `betaqtak/` folder makes the server redirect to the folder.
+- Arabic copy follows the app's wording rules (Betaqtak repo's CLAUDE.md). Keep the policy accurate to the code, especially the Private Cloud Compute paragraph.
