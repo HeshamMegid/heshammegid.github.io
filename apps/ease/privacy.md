@@ -29,7 +29,7 @@ Ease creates an account for you automatically, without asking for your name or e
 - **Premium:** whether you have Premium, and when you first and last upgraded. Apple handles payment, and we never receive your payment details.
 - **Weather at each attack, if you allow location:** barometric pressure, temperature and humidity when the attack started, how much the pressure had changed, and the location the weather was checked for.
 - **Sleep before each attack, if you allow access to sleep data in Apple Health:** how long you slept the night before, and how that compares with your usual sleep.
-- **Pressure alerts, if you turn them on:** your approximate location (rounded to about 11 km), your time zone, alert settings and a push notification token for each of your devices.
+- **Pressure alerts, while they're on:** your approximate location (rounded to about 11 km), your time zone, alert settings and a push notification token for each of your devices.
 - **How you found Ease:** if you installed Ease from an Apple Ads ad, Apple's attribution data, made up of the campaign, ad group, keyword and App Store country. This doesn't identify you.
 
 ## Apple Health
@@ -42,7 +42,7 @@ Ease asks for your location only while you're using it, to check the local barom
 
 ## Pressure alerts
 
-If you turn on pressure alerts, Ease stores your approximate location, rounded to about 11 km, and your time zone, so our server can check the pressure forecast for your area each evening and send you a notification before a significant change. The server asks Apple Weather for the forecast and sends alerts through Apple's push notification service using Firebase Cloud Messaging. The location updates only when you move to a different area, and Ease deletes it when you turn pressure alerts off.
+Pressure alerts are on for new users who allow notifications and location during setup, and anyone can turn them on or off in Settings → Notifications. While they're on, Ease stores your approximate location, rounded to about 11 km, and your time zone, so our server can check the pressure forecast for your area each evening and send you a notification before a significant change. The server asks Apple Weather for the forecast and sends alerts through Apple's push notification service using Firebase Cloud Messaging. The location updates only when you move to a different area, and Ease deletes it when you turn pressure alerts off.
 
 ## Insights summary
 
