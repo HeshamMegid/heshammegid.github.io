@@ -77,7 +77,7 @@ Your data is encrypted in transit and at rest by Firebase. Access rules let each
 
 - **Attacks:** delete an attack in the app at any time, and it's removed from your account straight away.
 - **Pressure alert location:** deleted as soon as you turn pressure alerts off.
-- **Your account:** email [ease@hesh.am](mailto:ease@hesh.am) to delete your account and everything in it. We'll do it within 30 days. Deleting the app from your iPhone doesn't delete your account.
+- **Your account:** go to **Settings → Delete Account** to delete your account and everything in it straight away, or email [ease@hesh.am](mailto:ease@hesh.am) and we'll do it within 30 days. Deleting the app from your iPhone doesn't delete your account.
 
 ## Children
 
