@@ -30,17 +30,17 @@ untouched.
 
 | File | Purpose |
 |---|---|
-| `_layouts/app.html` | Shared layout for every app page. Overrides the remote theme. Renders hero, feature rows, trust points, closing CTA from front matter. |
+| `_layouts/app.html` | Shared layout for every app page. Overrides the remote theme. Renders hero, feature rows, trust points, closing CTA from front matter. With `doc_title` in the front matter it renders a policy page instead (app header, the Markdown body, footer). |
 | `assets/apps/app.css` | All styling for the app pages + the `/apps` index. Self-contained. |
 | `apps/index.html` | The `/apps` index: personal intro ("Hi, I'm Hesham") + a grid of apps. Standalone HTML (no theme). |
-| `apps/<slug>.html` | One per app (e.g. `ease.html`, `trackit.html`). Front-matter only; the layout does the rest. |
+| `apps/<slug>.html` | One per app (e.g. `trackit.html`). Front-matter only; the layout does the rest. Ease is a folder instead: `apps/ease/index.html` (home, `/apps/ease/`) and `apps/ease/privacy.md` (`/apps/ease/privacy`). |
 | `_data/apps.yml` | Drives the `/apps` index grid. `status: live` makes a card link; anything else renders dimmed "coming soon". |
 | `assets/apps/<slug>/` | Per-app assets: `icon.png`, `screens/*.png`, `qr.svg`. |
 | `assets/apps/appstore-badge.svg` | Official Apple "Download on the App Store" badge (shared). |
 | `assets/apps/profile.png` | Hesham's photo, used on the `/apps` index. |
-| `<slug>-privacy.md` | Each app's privacy policy (already existed), linked via the page's `privacy:` key. |
+| `<slug>-privacy.md` | The older apps' privacy policies, linked via the page's `privacy:` key. Ease's moved to `apps/ease/privacy.md` on 2026-11-26; `ease-privacy.html` now only redirects there, because older app builds and App Store Connect linked to it. |
 
-`apps/ease.html` is the reference implementation — copy it when adding an app.
+`apps/ease/index.html` is the reference implementation — copy it when adding an app. For a policy page in the app's style, copy `apps/ease/privacy.md` (it repeats the brand keys the layout needs: `app_name`, `icon`, `accent`, `accent_dark`, `home`, `privacy`). A folder can't sit next to a same-named `.html` page (the server redirects to the folder), so an app that gets a policy page moves its home into `apps/<slug>/index.html`.
 
 ## How to add a new app
 
@@ -69,7 +69,7 @@ untouched.
    # QR pointing at the App Store listing
    npx qrcode "<app-store-url>" -t svg -o assets/apps/<slug>/qr.svg
    ```
-3. **Create `apps/<slug>.html`** — copy `apps/ease.html` and edit the front
+3. **Create `apps/<slug>.html`** — copy `apps/ease/index.html` and edit the front
    matter (schema below).
 4. **Add it to `_data/apps.yml`** with `status: live`.
 5. Preview with `bundle exec jekyll serve`, then commit. (Local Chrome

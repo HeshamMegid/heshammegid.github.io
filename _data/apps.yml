@@ -4,7 +4,7 @@
   slug: ease
   tagline: "Migraine tracker. Spot triggers, gain insights, share reports with your doctor."
   icon: /assets/apps/ease/icon.png
-  url: /apps/ease
+  url: /apps/ease/
   status: live
 
 - name: "TracKit"

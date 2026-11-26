@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ page.title }}</title>
+  <title>{% if page.doc_title %}{{ page.doc_title }} · {{ page.app_name }}{% else %}{{ page.title }}{% endif %}</title>
   <meta name="description" content="{{ page.description }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
@@ -18,6 +18,7 @@
   <meta name="twitter:description" content="{{ page.description }}">
   <meta name="twitter:image" content="{{ site.url }}{{ page.og_image | default: page.icon }}">
 
+  {%- unless page.doc_title %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,6 +32,7 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
+  {%- endunless %}
 
   <link rel="icon" type="image/png" href="{{ page.icon }}">
   <link rel="apple-touch-icon" href="{{ page.icon }}">
@@ -58,13 +60,22 @@
 
   <header class="site-header">
     <div class="site-header-inner">
-      <a class="brand" href="/apps">
+      <a class="brand" href="{% if page.doc_title %}{{ page.home | default: '/apps' }}{% else %}/apps{% endif %}">
         <img src="{{ page.icon }}" alt="" width="32" height="32">
         <span>{{ page.app_name }}</span>
       </a>
     </div>
   </header>
 
+  {% if page.doc_title %}
+  <main class="doc">
+    <article class="doc-body">
+      <h1>{{ page.doc_title }}</h1>
+      {% if page.doc_date %}<p class="doc-date">Last updated: {{ page.doc_date }}</p>{% endif %}
+      {{ content }}
+    </article>
+  </main>
+  {% else %}
   <header class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
 
@@ -188,9 +199,11 @@
       </div>
     </section>
   </main>
+  {% endif %}
 
   <footer class="app-footer">
     <nav>
+      {% if page.doc_title and page.home %}<a href="{{ page.home }}">{{ page.app_name }}</a>{% endif %}
       <a href="/apps">All apps</a>
       {% if page.privacy %}<a href="{{ page.privacy }}">Privacy</a>{% endif %}
       <a href="/">hesh.am</a>
